@@ -1,3 +1,6 @@
+## ⚠️ LEGAL NOTICE
+This software may not be copied, redistributed, or converted into an app.  
+See the [LICENSE](LICENSE) file for full terms.
 # Pakdefender3d
 
 A 3D multiplayer shooter inspired by Free Fire, set in Pakistan.  
