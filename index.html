@@ -70,11 +70,27 @@
             opacity: 0.7;
         }
     </style>
-    <!-- Adsterra Header Code (replace with your actual script) -->
-    <script type="text/javascript">
-        // Adsterra general configuration
-        var adsterra_config = { /* your config */ };
+
+    <!-- Ad Code 1: General ad script (profitablecpm) -->
+    <script src="https://pl29407327.profitablecpmratenetwork.com/00/f8/0e/00f80ea7b288ebddaa2752c13e63023c.js"></script>
+
+    <!-- Ad Code 2 & 3: 728x90 Banner Ad (below) -->
+    <script>
+      atOptions = {
+        'key' : 'b51b20e5c759d7769aa94f664a2f6940',
+        'format' : 'iframe',
+        'height' : 90,
+        'width' : 728,
+        'params' : {}
+      };
     </script>
+    <script src="https://www.highperformanceformat.com/b51b20e5c759d7769aa94f664a2f6940/invoke.js"></script>
+
+    <!-- Ad Code 4: Invoke script with container -->
+    <script async="async" data-cfasync="false" src="https://pl29407328.profitablecpmratenetwork.com/5ed610f2f520c0da30b592121d14db2c/invoke.js"></script>
+
+    <!-- Ad Code 5: Another ad script -->
+    <script src="https://pl29407329.profitablecpmratenetwork.com/94/3a/12/943a12872eeb0a040d20b6cea03b6b69.js"></script>
 </head>
 <body>
     <header>
@@ -86,11 +102,18 @@
         <a class="btn" href="https://github.com/youngest-businssman/pakdefender3d/releases/latest" target="_blank">
             ⬇ Download for Windows
         </a>
-        <!-- Adsterra Banner Ad (728x90) -->
-        <div class="ad-placeholder">
-            <!-- Paste your Adsterra banner code here, e.g.: -->
-            <script async src="//pl12345678.adsterra.com/..."></script>
+
+        <!-- Banner Ad Container (728x90) – already invoked above, will auto‑place here -->
+        <div class="ad-placeholder" id="banner-ad-1">
+            <!-- Ad will appear via the scripts loaded in head -->
         </div>
+
+        <!-- Optional direct ad link (the URL provided separately) -->
+        <p style="font-size:0.8em; margin-top:1rem;">
+            <a href="https://www.profitablecpmratenetwork.com/gpy2yuq06?key=bd6b6a3a0761b8596fa0f48fc4516b18" target="_blank" rel="nofollow">
+                Sponsored
+            </a>
+        </p>
     </section>
 
     <section class="features">
@@ -103,19 +126,16 @@
             <li>💃 20 emotes: Bhangra, Attan, Dhamal…</li>
             <li>💰 Start with 10 Diamonds + 10,000 Coins</li>
         </ul>
-        <!-- Adsterra Native Ad -->
-        <div class="ad-placeholder">
-            <!-- Paste native ad code -->
+
+        <!-- Container for the ad unit with specific ID (Ad Code 4) -->
+        <div id="container-5ed610f2f520c0da30b592121d14db2c" class="ad-placeholder">
+            <!-- Ad will be injected here automatically -->
         </div>
     </section>
 
     <section style="padding: 2rem;">
         <h2 style="color:#D4AF37;">Watch an Ad, Earn Diamonds</h2>
-        <p>In‑game economy: use diamonds to unlock skins, emotes, and more.<br> Support development by watching rewarded ads.</p>
-        <!-- Rewarded Ad (Adsterra) -->
-        <div class="ad-placeholder">
-            <!-- Paste rewarded ad code -->
-        </div>
+        <p>In‑game economy: use diamonds to unlock skins, emotes, and more.<br> Support the game by viewing ads.</p>
     </section>
 
     <footer>
@@ -123,10 +143,5 @@
         <a href="https://github.com/youngest-businssman/pakdefender3d/blob/main/LICENSE" style="color:#D4AF37;">License</a> |
         This software may not be copied, redistributed, or converted into an app.
     </footer>
-
-    <!-- Adsterra popunder / footer ad -->
-    <script>
-        // Your Adsterra popunder or other script
-    </script>
 </body>
 </html>
