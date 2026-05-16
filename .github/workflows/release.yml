@@ -1,0 +1,33 @@
+name: Build and Release Pakdefender3d
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install MSYS2
+        uses: msys2/setup-msys2@v2
+        with:
+          msystem: MINGW64
+          update: true
+          install: >-
+            mingw-w64-x86_64-gcc
+            mingw-w64-x86_64-SDL2
+            mingw-w64-x86_64-freeglut
+
+      - name: Build
+        shell: msys2 {0}
+        run: |
+          gcc -O2 pakdefender3d.c -o pakdefender3d.exe -lSDL2 -lopengl32 -lglu32 -lfreeglut -lm
+
+      - name: Upload to release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: pakdefender3d.exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
