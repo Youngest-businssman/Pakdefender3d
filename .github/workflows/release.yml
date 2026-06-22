@@ -1,4 +1,4 @@
-name: Build and Release Windows EXE
+name: Build Multiplayer Server & Client
 
 on:
   release:
@@ -20,14 +20,21 @@ jobs:
             mingw-w64-x86_64-SDL2
             mingw-w64-x86_64-freeglut
 
-      - name: Compile
+      - name: Build Server
         shell: msys2 {0}
         run: |
-          gcc -O2 pakdefender3d.c -o pakdefender3d.exe -lSDL2 -lOpenGL32 -lglu32 -lfreeglut -lm
+          gcc -O2 pakdefender3d_server.c -o pakdefender3d_server.exe -lws2_32 -lm
 
-      - name: Upload EXE to Release
+      - name: Build Client
+        shell: msys2 {0}
+        run: |
+          gcc -O2 "Pak defender 3d.c" -o Pakdefender3d.exe -lSDL2 -lfreeglut -lopengl32 -lglu32 -lws2_32 -lm
+
+      - name: Upload to Release
         uses: softprops/action-gh-release@v2
         with:
-          files: pakdefender3d.exe
+          files: |
+            pakdefender3d_server.exe
+            Pakdefender3d.exe
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
