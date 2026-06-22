@@ -1,0 +1,40 @@
+name: Build Multiplayer Server & Client (Windows)
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup MSYS2
+        uses: msys2/setup-msys2@v2
+        with:
+          msystem: MINGW64
+          update: true
+          install: >-
+            mingw-w64-x86_64-gcc
+            mingw-w64-x86_64-SDL2
+            mingw-w64-x86_64-freeglut
+
+      - name: Build Server
+        shell: msys2 {0}
+        run: |
+          gcc -O2 server.c -o server.exe -lws2_32 -lm
+
+      - name: Build Client
+        shell: msys2 {0}
+        run: |
+          gcc -O2 client.c -o Pakdefender3d.exe -lSDL2 -lfreeglut -lopengl32 -lglu32 -lws2_32 -lm
+
+      - name: Upload to Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            server.exe
+            Pakdefender3d.exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
